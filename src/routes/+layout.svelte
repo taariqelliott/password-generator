@@ -5,7 +5,7 @@
 </script>
 
 <div class="absolute w-full bg-emerald-950 py-2">
-	<h1 class="ml-2 text-center text-lime-500">Password Generator</h1>
+	<h1 class="ml-2 text-center text-lime-500">•Password Generator•</h1>
 </div>
 {@render children()}
 
