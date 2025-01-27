@@ -86,7 +86,7 @@
 		noSpaces = false;
 		passwords = [];
 		for (let idx = 0; idx < 5; idx++) {
-			passwords.push(' ');
+			passwords.push('');
 		}
 	}
 </script>
@@ -182,7 +182,7 @@
 	<div class="flex flex-row gap-4">
 		<button onclick={clearAllFields}>
 			<div
-				class="mt-2 w-36 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-2 py-3 text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
+				class="mt-2 w-32 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-1 py-3 text-sm text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
 			>
 				Clear
 			</div>
@@ -203,7 +203,7 @@
 			}}
 		>
 			<div
-				class="mt-2 w-36 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-2 py-3 text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
+				class="mt-2 w-32 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-1 py-3 text-sm text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
 			>
 				Shuffle 🔀
 			</div>
@@ -214,12 +214,12 @@
 		<input
 			placeholder="Paste..."
 			type="text"
-			class="w-full flex-row justify-between gap-2 rounded-lg bg-zinc-800 px-4 py-4 text-zinc-100"
+			class="w-full flex-row justify-between gap-2 overflow-hidden rounded-lg bg-zinc-800 px-4 py-4 pr-16 text-zinc-100"
 			bind:this={inputElement}
 		/>
 		<button
 			type="button"
-			class="absolute top-1/2 right-4 -translate-y-1/2 transform text-xl text-lime-500"
+			class="transtion-all absolute top-1/2 right-4 mr-2 -translate-y-1/2 transform cursor-pointer rounded-md bg-lime-500 px-2 text-lg text-emerald-950 duration-100 hover:opacity-90 active:scale-90 active:opacity-90"
 			onclick={() => (inputElement.value = '')}
 		>
 			&times;
@@ -253,7 +253,7 @@
 			</div>
 			<button
 				disabled={pw.replace(/\s/g, '').length === 0}
-				class="w-10 cursor-pointer text-center hover:opacity-90 active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
+				class="w-10 cursor-pointer text-center transition-all duration-100 hover:opacity-90 active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
 				use:copy={{ text: pw }}
 				onclick={() => {
 					copyToClipboard(`password-${index}`);

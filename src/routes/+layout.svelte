@@ -10,21 +10,21 @@
 {@render children()}
 
 <div class="absolute bottom-0 flex w-full justify-between bg-emerald-950 py-2 text-lime-500">
-	<div class="ml-2 flex flex-row gap-2">
+	<div class="ml-2 flex flex-row gap-2 transition-all duration-200">
 		<a
 			href="https://github.com/taariqelliott"
-			class="hover:opacity-70 active:scale-90 active:opacity-70"
+			class="transition-all duration-200 hover:opacity-70 active:scale-90 active:opacity-70"
 			target="”_blank”"><Icon icon="iconoir:github" width="30" height="30" /></a
 		>
 		<a
 			href="https://www.linkedin.com/in/taariq-elliott/"
-			class="hover:opacity-70 active:scale-90 active:opacity-70"
+			class="transition-all duration-200 hover:opacity-70 active:scale-90 active:opacity-70"
 			target="”_blank”"
 			><Icon icon="iconoir:linkedin" width="30" height="30" />
 		</a>
 		<a
 			href="https://taariqelliott.netlify.app/"
-			class="hover:opacity-70 active:scale-90 active:opacity-70"
+			class="transition-all duration-200 hover:opacity-70 active:scale-90 active:opacity-70"
 			target="”_blank”"
 			><Icon icon="iconoir:code" width="30" height="30" />
 		</a>
