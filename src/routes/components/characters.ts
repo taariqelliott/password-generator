@@ -91,4 +91,4 @@ export const commonSymbols: string[] = [
 	' '
 ];
 
-export const specialSymbols: string[] = ['§', '±', '€', '£', '¢', '¥', ' '];
+export const specialSymbols: string[] = ['§', '±', '€', '£', '¢', '¥'];

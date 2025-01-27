@@ -36,6 +36,7 @@
 		if (includeNumbers) availableChars.push(...numbers);
 		if (includeCommonSymbols) availableChars.push(...commonSymbols);
 		if (includeSpecialSymbols) availableChars.push(...specialSymbols);
+		if (!includeCommonSymbols) noSpaces = false;
 
 		for (let i = 0; i < 5; i++) {
 			password = Array.from(
@@ -64,16 +65,11 @@
 		}
 	});
 
-	function copyToClipboard(target: string) {
-		const element = document.getElementById(target);
-		if (element) {
-			// const copyText = element.innerText;
-			// popupText = copyText;
-			popupVisible = true;
-			setTimeout(() => {
-				popupVisible = false;
-			}, 2000);
-		}
+	function copyToClipboard() {
+		popupVisible = true;
+		setTimeout(() => {
+			popupVisible = false;
+		}, 2000);
 	}
 
 	function clearAllFields() {
@@ -189,9 +185,6 @@
 		</button>
 		<button
 			onclick={() => {
-				includeLetters = true;
-				includeCommonSymbols = true;
-				includeNumbers = true;
 				let count = 0;
 				let intervalId = setInterval(() => {
 					generatePassword();
@@ -256,7 +249,7 @@
 				class="w-10 cursor-pointer text-center transition-all duration-100 hover:opacity-90 active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
 				use:copy={{ text: pw }}
 				onclick={() => {
-					copyToClipboard(`password-${index}`);
+					copyToClipboard();
 				}}
 			>
 				<span id="copy-{index}">📋</span>
