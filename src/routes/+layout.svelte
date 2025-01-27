@@ -29,7 +29,7 @@
 			><Icon icon="iconoir:code" width="30" height="30" />
 		</a>
 	</div>
-	<div class="mr-2">
-		<a href="mailto:codebytaariq@gmail.com" class="hover:underline">codebytaariq@gmail.com</a>
+	<div class="mr-2 flex items-center justify-center text-sm hover:underline">
+		<a href="mailto:codebytaariq@gmail.com">codebytaariq@gmail.com</a>
 	</div>
 </div>
