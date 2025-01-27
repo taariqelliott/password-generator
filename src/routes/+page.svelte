@@ -16,7 +16,6 @@
 	let mountedPassword = $state('');
 	let password = $state(' ');
 	let inputElement: HTMLInputElement;
-	// let popupText = $state('');
 
 	function generatePassword() {
 		passwords = [];
@@ -222,32 +221,28 @@
 		class="mt-2 flex h-[1px] w-80 max-w-sm flex-row justify-between gap-2 rounded-lg bg-lime-500 px-4 text-zinc-100"
 	></div>
 	{#each passwords as pw, index}
+		{@const transformedPw = (() => {
+			let result = pw;
+			if (isLowerCase) {
+				result = result.toLowerCase();
+			} else if (isUpperCase) {
+				result = result.toUpperCase();
+			}
+			if (noSpaces) {
+				result = result.replace(/\s/g, '');
+			}
+			return result;
+		})()}
 		<div
 			class="mt-2 flex w-full max-w-sm flex-row justify-between gap-2 rounded-lg bg-zinc-800 px-4 py-4 text-zinc-100"
 		>
 			<div id="password-{index}" class="hide-scrollbar flex-1 overflow-x-scroll whitespace-nowrap">
-				{#if isLowerCase}
-					{#if noSpaces}
-						{pw.toLowerCase().replace(/\s/g, '')}
-					{:else}
-						{pw.toLowerCase()}
-					{/if}
-				{:else if isUpperCase}
-					{#if noSpaces}
-						{pw.toUpperCase().replace(/\s/g, '')}
-					{:else}
-						{pw.toUpperCase()}
-					{/if}
-				{:else if noSpaces}
-					{pw.replace(/\s/g, '')}
-				{:else}
-					{pw}
-				{/if}
+				{transformedPw}
 			</div>
 			<button
 				disabled={pw.replace(/\s/g, '').length === 0}
 				class="w-10 cursor-pointer text-center transition-all duration-100 hover:opacity-90 active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
-				use:copy={{ text: pw }}
+				use:copy={{ text: transformedPw }}
 				onclick={() => {
 					copyToClipboard();
 				}}
