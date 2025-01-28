@@ -191,7 +191,7 @@
 			aria-label="Select password length"
 		>
 			<option value={8} disabled selected>Select length...</option>
-			{#each Array.from({ length: 443 }, (_, i) => i + 8) as length}
+			{#each Array.from({ length: 57 }, (_, i) => i + 8) as length}
 				<option value={length}>{length}</option>
 			{/each}
 		</select>
