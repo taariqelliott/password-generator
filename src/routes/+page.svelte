@@ -107,6 +107,7 @@
 					name="letters"
 					bind:checked={includeLetters}
 					onchange={() => generatePassword()}
+					aria-label="Include letters"
 				/>
 				<label for="letters">Letters</label>
 			</div>
@@ -116,6 +117,7 @@
 					name="numbers"
 					bind:checked={includeNumbers}
 					onchange={() => generatePassword()}
+					aria-label="Include numbers"
 				/>
 				<label for="numbers">Numbers</label>
 			</div>
@@ -125,6 +127,7 @@
 					name="commonSymbols"
 					bind:checked={includeCommonSymbols}
 					onchange={() => generatePassword()}
+					aria-label="Include common symbols"
 				/>
 				<label for="commonSymbols">Common Symbols</label>
 			</div>
@@ -134,6 +137,7 @@
 					name="specialSymbols"
 					bind:checked={includeSpecialSymbols}
 					onchange={() => generatePassword()}
+					aria-label="Include special symbols"
 				/>
 				<label for="specialSymbols">Special Symbols</label>
 			</div>
@@ -148,6 +152,7 @@
 							isUpperCase = false;
 						}
 					}}
+					aria-label="Convert to lowercase"
 				/>
 				<label for="lowercase">Lowercase</label>
 			</div>
@@ -162,6 +167,7 @@
 							isLowerCase = false;
 						}
 					}}
+					aria-label="Convert to uppercase"
 				/>
 				<label for="uppercase">Uppercase</label>
 			</div>
@@ -171,6 +177,7 @@
 					name="noSpaces"
 					disabled={!includeCommonSymbols}
 					bind:checked={noSpaces}
+					aria-label="Remove spaces"
 				/>
 				<label for="noSpaces">No Spaces</label>
 			</div>
@@ -181,6 +188,7 @@
 			class="w-48 rounded border bg-lime-500 py-1 text-emerald-950"
 			bind:value={selectedLength}
 			onchange={() => generatePassword()}
+			aria-label="Select password length"
 		>
 			<option value={8} disabled selected>Select length...</option>
 			{#each Array.from({ length: 443 }, (_, i) => i + 8) as length}
@@ -188,7 +196,7 @@
 			{/each}
 		</select>
 		<div class="flex flex-row gap-4">
-			<button onclick={clearAllFields}>
+			<button onclick={clearAllFields} aria-label="Clear all fields">
 				<div
 					class="mt-2 w-32 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-1 py-3 text-sm text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
 				>
@@ -201,11 +209,12 @@
 					let intervalId = setInterval(() => {
 						generatePassword();
 						count++;
-						if (count >= 200) {
+						if (count >= 50) {
 							clearInterval(intervalId);
 						}
 					}, 1);
 				}}
+				aria-label="Shuffle passwords"
 			>
 				<div
 					class="mt-2 w-32 cursor-pointer rounded-lg border-2 border-lime-500 bg-zinc-800 px-1 py-3 text-sm text-zinc-100 transition-all duration-100 hover:opacity-90 active:scale-95 active:opacity-90"
@@ -221,6 +230,7 @@
 				type="text"
 				class="w-full flex-row justify-between gap-2 overflow-hidden rounded-lg bg-zinc-800 px-4 py-4 pr-16 text-zinc-100"
 				bind:this={inputElement}
+				aria-label="Paste input"
 			/>
 			<button
 				type="button"
@@ -230,6 +240,7 @@
 						inputElement.value = '';
 					}
 				}}
+				aria-label="Clear input"
 			>
 				&times;
 			</button>
@@ -256,6 +267,7 @@
 				<div
 					id="password-{index}"
 					class="hide-scrollbar flex-1 overflow-x-scroll whitespace-nowrap"
+					aria-label={`Generated password ${index + 1}`}
 				>
 					{transformedPw}
 				</div>
@@ -266,6 +278,7 @@
 					onclick={() => {
 						copyToClipboard();
 					}}
+					aria-label={`Copy password ${index + 1}`}
 				>
 					<span id="copy-{index}">📋</span>
 				</button>
@@ -274,6 +287,7 @@
 		{#if popupVisible}
 			<div
 				class="absolute top-12 right-2 max-w-[200px] overflow-hidden rounded-lg border-2 border-emerald-950 bg-lime-500 px-2 py-3 text-xs font-bold text-ellipsis whitespace-nowrap text-emerald-950 sm:top-auto sm:bottom-14"
+				aria-live="polite"
 			>
 				Copied!
 			</div>
